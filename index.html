@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SHAPH（シャフ）</title>
+  <meta name="description" content="SHAPH（シャフ）の公式サイト。手書き漢字クイズゲーム『漢字でGOGO!』と事業者情報をご案内します。">
+  <link rel="canonical" href="https://formidi.github.io/Shaph/">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202020;
+      --muted: #555;
+      --line: #cfcfcf;
+      --paper: #fff;
+      --light: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans CJK JP", sans-serif;
+      line-height: 1.8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect width='12' height='24' fill='%23f3f3f3'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .container {
+      width: min(100% - 48px, 960px);
+      margin-inline: auto;
+    }
+
+    .site-header {
+      background: var(--paper);
+      border-top: 4px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 60px;
+    }
+
+    .site-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: clamp(12px, 3vw, 32px); }
+    nav a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      font-size: .875rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    .hero {
+      padding: clamp(38px, 6vw, 70px) 0 clamp(30px, 5vw, 54px);
+      text-align: center;
+    }
+
+    .hero h1 {
+      width: min(100%, 430px);
+      margin: 0 auto;
+    }
+
+    .hero p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: .9375rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+    }
+
+    .section { margin-bottom: 42px; }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin: 0 0 12px;
+      padding: 0 0 9px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.375rem;
+      line-height: 1.5;
+    }
+
+    .section-title span {
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+    }
+
+    .game {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .game-image {
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      border-right: 1px solid var(--line);
+      background: var(--light);
+    }
+
+    .game-image img { width: 100%; }
+
+    .game-info {
+      align-self: center;
+      padding: 24px clamp(20px, 4vw, 38px);
+    }
+
+    .genre {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: .8125rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .game-info h3 {
+      margin: 0;
+      font-size: clamp(1.625rem, 4vw, 2.25rem);
+      line-height: 1.4;
+    }
+
+    .description { margin: 10px 0 18px; }
+
+    .store-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .store-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 44px;
+      padding: 7px 13px;
+      border: 1px solid var(--ink);
+      font-size: .875rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .store-links a:hover { background: var(--ink); color: var(--paper); }
+
+    .details {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .details > div {
+      display: grid;
+      grid-template-columns: 9.25rem minmax(0, 1fr);
+    }
+
+    .details > div + div { border-top: 1px solid var(--line); }
+    .details dt, .details dd { margin: 0; padding: 11px 18px; }
+    .details dt { background: var(--light); font-weight: 700; }
+    .details address { font-style: normal; }
+    .details a { text-underline-offset: 3px; }
+
+    .site-footer {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--muted);
+      font-size: .8125rem;
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 32px); }
+      .hero h1 { width: min(100%, 360px); }
+      .game { grid-template-columns: 1fr; }
+      .game-image {
+        padding: 16px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .game-image img { width: min(100%, 192px); }
+      .details > div { grid-template-columns: 1fr; }
+      .details dt { padding-bottom: 6px; }
+      .details dd { padding-top: 8px; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="site-name" href="#top">SHAPH</a>
+      <nav aria-label="ページ内メニュー">
+        <a href="#games">ゲーム</a>
+        <a href="#business">事業者情報</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero">
+      <h1><img src="img/Logo.png" alt="SHAPH（シャフ）" width="860" height="280"></h1>
+      <p>ゲーム開発・配信</p>
+    </div>
+
+    <section class="section" id="games" aria-labelledby="games-title">
+      <h2 class="section-title" id="games-title">制作ゲーム <span lang="en">GAMES</span></h2>
+      <article class="game" aria-labelledby="game-title">
+        <div class="game-image">
+          <img src="img/Game_001.png" alt="" width="512" height="512">
+        </div>
+        <div class="game-info">
+          <p class="genre">手書き漢字クイズ</p>
+          <h3 id="game-title">漢字でGOGO!</h3>
+          <p class="description">画面に漢字を書いて答えるクイズゲームです。身近な漢字から難しい熟語まで、さまざまなモードで挑戦できます。</p>
+          <div class="store-links">
+            <a href="https://store.steampowered.com/app/4826530/">Steamで見る <span aria-hidden="true">↗</span></a>
+            <a href="https://apps.apple.com/jp/app/%E6%BC%A2%E5%AD%97%E3%81%A7gogo/id6812355209">App Storeで見る <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="business" aria-labelledby="business-title">
+      <h2 class="section-title" id="business-title">事業者情報 <span lang="en">BUSINESS</span></h2>
+      <dl class="details">
+        <div>
+          <dt>屋号</dt>
+          <dd>SHAPH（シャフ）</dd>
+        </div>
+        <div>
+          <dt>連絡先住所</dt>
+          <dd><address>〒105-0013<br>東京都港区浜松町2-2-15 浜松町ダイヤビル2F</address></dd>
+        </div>
+        <div>
+          <dt>電話番号</dt>
+          <dd><a href="tel:+817066265498">070-6626-5498</a></dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© SHAPH</div>
+  </footer>
+</body>
+</html>
